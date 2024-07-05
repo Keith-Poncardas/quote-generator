@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quote Generator</title>
+
+  <!-- Twitter description meta tag -->
+  <meta name="twitter:description"
+    content="Get instant quotes at your fingertips with Quote Generator. Our simple web app provides a quick and easy way to find the perfect words for any occasion.">
+
+  <!-- Twitter image meta tag -->
+  <meta name="twitter:image" content="assets/image/512x512.png">
+
+  <!-- Open Graph image meta tag -->
+  <meta property="og:image" content="assets/image/512x512.png">
+
+  <!-- General description meta tag -->
+  <meta name="description"
+    content="Get instant quotes at your fingertips with Quote Generator. Our simple web app provides a quick and easy way to find the perfect words for any occasion.">
+
+  <!-- Open Graph type meta tag -->
+  <meta property="og:type" content="website">
+
+  <!-- Twitter card type meta tag -->
+  <meta name="twitter:card" content="summary">
+
+  <!-- Twitter title meta tag -->
+  <meta name="twitter:title" content="Quote Generator">
+
+  <!-- Apple touch icon link tag -->
+  <link rel="apple-touch-icon" href="assets/image/180x180.png" sizes="180x180" type="image/png">
+
+  <!-- Favicon link tags for various sizes -->
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/32x32.png">
+  <link rel="icon" type="image/png" sizes="180x180" href="assets/img/180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/img/192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/img/512x512.png">
+
+  <!-- Bootstrap CSS Link tag -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <!-- Custom CSS Link tag -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!-- Preconnect link tags for google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Google Fonts link tag -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+
+  <!-- Animate.css stylesheet link tag -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+  <!-- Font Awesome stylesheet link tag -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <main class="container main-container d-flex justify-content-center align-items-center">
+    <div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
+
+      <div class="card-header fs-2 quote-card-title">
+        Your Quote For Today
+      </div>
+
+      <div class="card-body mt-3">
+        <blockquote class="blockquote mb-0">
+          <p class="fs-4">
+            <i class="fa-solid fa-quote-left quote"></i>
+            <span id="quote-text"></span>
+          </p>
+          <footer class="blockquote-footer mt-4 float-end">
+            <cite id="quote-citing" title="Source Title"></cite>
+          </footer>
+        </blockquote>
+      </div>
+
+      <div class="card-footer py-3">
+        <button id="copy-btn" type="button" class="btn btn-outline-primary rounded-2 btn-lg" data-bs-container="body"
+          data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Copied to Clipboard!">
+          <i class="fa-solid fa-copy icon"></i>
+        </button>
+
+        <button id="tweet-btn" type="button" class="btn btn-outline-primary rounded-2 btn-lg">
+          <i class="fa-brands fa-twitter icon"></i>
+        </button>
+
+        <button id="new-quote-btn" type="button" class="btn btn-success float-end rounded-3 generate-verse-btn btn-lg"
+          title="Generate Quote">New Quote</button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="fixed-bottom d-flex justify-content-center">
+    <p>2024 Made With Love By Keith Poncardas.</p>
+  </footer>
+
+  <!-- Custom Javascript File -->
+  <script src="./assets/js/app.js"></script>
+
+  <!-- Javascript file for handling quotes -->
+  <script src="./assets/js/quote.js"></script>
+
+  <!-- Popper.js library from CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+
+  <!-- Bootstrap Javascript library from CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+    crossorigin="anonymous"></script>
+
+  <!-- Script for initializing Bootstrap popovers with autohide functionality -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+      var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+        var popover = new bootstrap.Popover(popoverTriggerEl);
+
+        popoverTriggerEl.addEventListener('shown.bs.popover', function () {
+          setTimeout(function () {
+            popover.hide();
+          }, 1000);
+        });
+
+        return popover;
+      });
+    });
+  </script>
+</body>
+
+</html>
